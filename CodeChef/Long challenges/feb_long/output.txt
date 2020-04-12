@@ -1,0 +1,58 @@
+16 4 
+4 64 
+ sr 1
+ sr 1
+ sr -32
+ sr -32
+b[i] a[j] sr 2 -4 -8
+0
+1 4 9 36 1 4 9 36 
+36 36 1 1 
+ sr -36
+ sr -36
+ sr -36
+ sr -36
+ sr -18
+ sr -18
+ sr -18
+ sr -18
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 0
+ sr 24
+ sr 24
+ sr 24
+ sr 24
+ sr 2
+a[i] b[j] sr -3 6 2
+ sr 2
+a[i] b[j] sr -3 -6 2
+ sr 2
+a[i] b[j] sr -3 1 2
+ sr 2
+a[i] b[j] sr -3 -1 2
+ sr -1
+a[i] b[j] sr -6 6 -1
+ sr -1
+ sr -1
+a[i] b[j] sr -6 1 -1
+ sr -1
+a[i] b[j] sr -6 -1 -1
+b[i] a[j] sr 6 6 -6
+b[i] a[j] sr 6 -6 -6
+b[i] a[j] sr -6 3 1
+b[i] a[j] sr -6 6 6
+b[i] a[j] sr -6 -3 1
+b[i] a[j] sr 1 1 -1
+b[i] a[j] sr 1 -1 -1
+b[i] a[j] sr -1 -1 1
+7
