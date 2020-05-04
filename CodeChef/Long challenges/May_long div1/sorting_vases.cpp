@@ -28,25 +28,45 @@ int main()
 	ios_base::sync_with_stdio(false);
 	// freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);
-	ll t,n,i,j,p,q,flag=0,temp,x,y,l,r;
+	ll t,n,m,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
 	{
-		ll x, y, l, r, i;
-        cin >> x >> y >> l >> r;
-        if(r>=2*max(x,y))
-        {
-            //cout<<x<<" "<<y<<" "<<l<<" "<<r<<" ";
-            if(x==0 || y==0 )
-                cout<<l<<endl;
-            else
-            {
-                cout << (x | y) << endl;
-            }
-            
-                
-            
-        }
+		cin>>n>>m;
+		int p[n+1];
+		p[0]=INT_MAX;
+
+		rep1(i,n)
+		cin>>p[i];
+
+		// rep1(i,n)
+		// cout<<p[i]<<" ";
+		// cout<<endl;
+
+		int count=0;
+		rep1(i,n-1)
+		{
+			int j=i+1;
+			rep1(j,n)
+			{
+				if(i==p[j] && p[i]!=p[j])
+				{	
+					//cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
+					count++;
+					swap(p[i],p[j]);
+					break;
+				}
+			}
+		}
+		// rep1(i,n)
+		// cout<<p[i]<<" ";
+		// cout<<endl;
+		// cout<<endl;
+		cout<<count<<endl;
+
+   
+
+  
 
 	}
 	return 0;
