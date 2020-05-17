@@ -1,29 +1,29 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 #define ll long long
 #define MOD 1000000009
 #define N 1000000
 
-/* int billiards_TopDown(int n, int count)
+ int billiards_TopDown(int n,int dp[])
 {
-    cout << "stck\t" << n << endl;
+    //cout << "stck\t" << n << endl;
 
-    if (n == 1 || n == 0)
-        return 0;
-    if (n == 2 || n == 3)
+    if(n==0)
         return 1;
 
-    int ans1 = 0, ans2 = 0;
+    if(dp[n]!=0)
+        return dp[n];
+
+    int count1=0;
     if (n - 2 >= 0)
-        count += billiards(n - 2, count);
-    cout << "count1 " << count << endl;
+        count1 += billiards_TopDown(n - 2,dp);
 
     if (n - 3 >= 0)
-        count += billiards(n - 3, count);
-    cout << "count2 " << count << endl;
+        count1 += billiards_TopDown(n - 3,dp);
 
-    return count;
-} */
+    return dp[n] = count1;
+} 
 
 int main()
 {
@@ -42,9 +42,11 @@ int main()
     while (t--)
     {
         cin >> n;
-        //cout << billiards_TopDown(n, 0) << endl;
+        int dp1[100]={0};
+       
+        cout << billiards_TopDown(n,dp1) << endl;
 
-        cout << dp[n] % MOD << endl;
+        //cout << dp[n] % MOD << endl;
     }
     return 0;
 }

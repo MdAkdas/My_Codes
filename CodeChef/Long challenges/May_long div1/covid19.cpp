@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-    /* freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout); */
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     int t, n, i, j;
     cin >> t;
     while (t--)
