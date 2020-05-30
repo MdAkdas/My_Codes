@@ -22,51 +22,37 @@ using namespace std;
 
 const int inf=(int)1e9;
 
-
+bool comp(pair<int,int>a,pair<int,int>b)
+{
+	return (pow(a.F,2)+pow(a.S,2)) < (pow(b.F,2)+pow(b.S,2));
+}
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
-	ll t,n,m,i,j,p,q,r,flag=0,temp;
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
+	ll t,n,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
-
-		rep1(i,n)
-		cin>>p[i];
-
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-
-		int count=0;
-		rep1(i,n-1)
+		cin>>n;
+		vector<pair<int,int>>v;
+		int a,b;
+		for(int i=0;i<n;i++)
 		{
-			int j=i+1;
-			rep1(j,n)
-			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
-			}
+			cin>>a>>b;
+			v.push_back(mp(a,b));
 		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
 
-   
-
-  
+		for(auto el : v)
+		{
+			cout<<el.F<<" "<<el.S<<endl;
+		}
+		sort(v.begin(),v.end(),comp);
+		for(int i=0;i<k;i++)
+		{
+			cout<<v[i].F<<" "<<v[i].S<<endl;
+		}
 
 	}
 	return 0;

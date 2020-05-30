@@ -26,43 +26,42 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
-	ll t,n,m,i,j,p,q,r,flag=0,temp;
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
+	ll t,n,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
+		cin>>n;
+		std::vector<int> nums;
 
-		rep1(i,n)
-		cin>>p[i];
-
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-
-		int count=0;
-		rep1(i,n-1)
+		rep(i,n)
 		{
-			int j=i+1;
-			rep1(j,n)
-			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
-			}
+			cin>>p;
+			nums.pb(p);
 		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
+
+
+		map<int,int>mp;
+        mp.clear();
+        for(auto no : nums)
+        {
+            mp[no]+=1;
+        }
+        int majEle=0;
+        int majEleVal=INT_MIN;
+        
+        for(auto m : mp)
+        {	
+        	
+            if(m.second > majEleVal)
+            {
+            	cout<<m.first<<" "<<m.S<<endl;
+                majEle=m.first;
+                majEleVal=m.second;
+            }
+        }
+        cout<< majEle<<endl;
 
    
 

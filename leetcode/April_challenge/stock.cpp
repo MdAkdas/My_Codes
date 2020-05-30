@@ -26,48 +26,22 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
-	ll t,n,m,i,j,p,q,r,flag=0,temp;
-	cin>>t;
-	while(t--)
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
+	ll t,n,i,j,p,q,r,flag=0,temp;
+	cin>>n;
+	int a[n];
+	rep(i,n)
+	cin>>a[i];
+	int ans=0;
+
+	rep(i,n-1)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
-
-		rep1(i,n)
-		cin>>p[i];
-
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-
-		int count=0;
-		rep1(i,n-1)
+		if(a[i+1]>a[i])
 		{
-			int j=i+1;
-			rep1(j,n)
-			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
-			}
+			ans+=a[i+1]-a[i];
 		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
-
-   
-
-  
-
 	}
+	cout<<ans<<endl;
 	return 0;
 }

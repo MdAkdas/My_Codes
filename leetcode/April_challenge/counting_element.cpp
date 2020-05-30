@@ -26,48 +26,41 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
-	ll t,n,m,i,j,p,q,r,flag=0,temp;
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
+	ll t,n,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
+		cin>>n;
+		ll arr[n];
 
-		rep1(i,n)
-		cin>>p[i];
-
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
+		ll frq[10005];
+		memset(frq,0,sizeof(arr));
+		
+		rep(i,n)
+		{
+			cin>>arr[i];
+			frq[arr[i]]++;
+				
+		}
+		sort(arr,arr+n);
+		rep(i,10)
+		cout<<i<<" "<<frq[i]<<endl;
 
 		int count=0;
-		rep1(i,n-1)
+		for(int i=0;i<n-1;i++)
 		{
-			int j=i+1;
-			rep1(j,n)
+			if(arr[i+1]-arr[i]==1)
 			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
+				count+=frq[arr[i]];
+				cout<<"c "<<count<<endl;
+
 			}
 		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
+		cout<<"count "<<count<<endl;
 
-   
-
-  
-
+		
 	}
 	return 0;
 }

@@ -12,7 +12,7 @@ using namespace std;
 #define dd double
 #define rep(i, n) for(int i = 0; i < n; i++)
 #define REP(i,a,b) for(int i=a;i<b;i++)
-#define rep1(i,b) for(int i=1;i<=b;i++)
+#define rep1(i,b) for(int i=1;i<b;i++)
 #define pb push_back
 #define mp make_pair
 #define F first
@@ -26,48 +26,55 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
 	ll t,n,m,i,j,p,q,r,flag=0,temp;
 	cin>>t;
+
 	while(t--)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
+		cin>>m>>n;
 
-		rep1(i,n)
-		cin>>p[i];
+		int a[m][n],dp[m][n];
+		memset(dp,0,sizeof(dp));
 
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-
-		int count=0;
-		rep1(i,n-1)
+		rep(i,m)
 		{
-			int j=i+1;
-			rep1(j,n)
+			rep(j,n)
 			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
+				cin>>a[i][j];
+				dp[i][j]=a[i][j];
 			}
 		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
+		int maxm=0;
+		for(i=1;i<m;i++)
+		{
+			for(j=1;j<n;j++)
+			{
+				//cout<<dp[i][j]<<" ";
+				//cout<<"i "<<i<<" j "<<j<<endl;
 
-   
+				if(dp[i][j]==1)
+				{
+					if(dp[i-1][j]!=0 && dp[i][j-1]!=0 && dp[i-1][j-1]!=0)
+					dp[i][j]=dp[i-1][j-1]+1;
+				}
+				maxm=max(dp[i][j],maxm);
+			}
+			cout<<endl;
+		}
+		rep(i,m)
+		{
+			rep(j,n)
+			{
+				cout<<dp[i][j]<<" ";
+			}
+			cout<<endl;
+		}
 
-  
+		cout<<maxm*maxm<<endl;
 
+		
 	}
 	return 0;
 }

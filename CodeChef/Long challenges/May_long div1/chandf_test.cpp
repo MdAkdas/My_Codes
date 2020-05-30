@@ -81,7 +81,8 @@ int main()
 						cout<<"z1 "<<z1<<endl;
 						cout<<"kb1 "<<kb1<<endl;
 						cout<<"ans1 "<<ans1<<endl; */
-						
+						if(i!=0)
+						{
 							kb2=r;
 							kb2[i]=0;
 							for(int j=i-1;j>=0;j--)
@@ -104,10 +105,32 @@ int main()
 							{
 								mp[z2]=ans2;
 							}
-						
+						}
+						else
+						{
+							kb2=r;
+							ll z2=kb2.to_ullong();
+
+							//cout<<"z2 "<<z2<<endl;
+							//cout<<"kb2 "<<kb2<<endl;
+							
+							z2=(x|y)&z2;
+							bitset<62>v(z2);
+							//cout<<"z2  "<<v<<endl;
+							//cout<<"z2 "<<z2<<endl;
+							
+
+							ll ans2 = (x&z2)*(y&z2);
+							//cout<<"ans2 "<<ans2<<endl;
+							if(z2<=r)
+							{
+								mp[z2]=ans2;
+							}
+							
+						}
 								
 					}
-					/*else
+					else
 					{
 							kb2=r;
 							kb2[i]=0;
@@ -131,7 +154,7 @@ int main()
 							{
 								mp[z2]=ans2;
 							}
-					}*/
+					}
 					
 				}
 				ll val = 0;

@@ -26,43 +26,39 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
-	ll t,n,m,i,j,p,q,r,flag=0,temp;
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
+	ll t,n,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
 	{
-		cin>>n>>m;
-		int p[n+1];
-		p[0]=INT_MAX;
+		cin>>n;
+		bool a[n]=false;
+        int l=0,r=n-1;
+        
+        while(l<=r)
+        {
+            int mid = (l+r)/2 ;
+            
+            if(isBadVersion(mid))
+            {
+                a[mid]=true;
+                r= mid-1;
+            }
+            else
+            {
+                l= mid + 1;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+        	if(a[i])
+        	{
+        		cout<<i+1<<endl;
+        		break;
+        	}
+        }
 
-		rep1(i,n)
-		cin>>p[i];
-
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-
-		int count=0;
-		rep1(i,n-1)
-		{
-			int j=i+1;
-			rep1(j,n)
-			{
-				if(i==p[j] && p[i]!=p[j])
-				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
-					count++;
-					swap(p[i],p[j]);
-					break;
-				}
-			}
-		}
-		// rep1(i,n)
-		// cout<<p[i]<<" ";
-		// cout<<endl;
-		// cout<<endl;
-		cout<<count<<endl;
 
    
 
