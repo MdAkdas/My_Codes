@@ -26,8 +26,8 @@ const int inf=(int)1e9;
 int main() 
 {  
 	ios_base::sync_with_stdio(false);
-	/*freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);*/
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
 	ll t,n,m,i,j,p,q,r,flag=0,temp;
 	cin>>t;
 	while(t--)
@@ -51,7 +51,7 @@ int main()
 			{
 				if(i==p[j] && p[i]!=p[j])
 				{	
-					cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
+					//cout<<i<<" "<<p[i]<<" "<<p[j]<<endl;
 					count++;
 					swap(p[i],p[j]);
 					break;
