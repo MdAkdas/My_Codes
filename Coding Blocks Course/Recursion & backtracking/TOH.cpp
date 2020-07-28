@@ -1,26 +1,22 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void TOH(int n, string src, string dest, string aux)
+void towerofhanoi(int n, char src, char dest, char helper)
 {
-	if(n==0)
-	return;
-    
-    //cout<<"Moving "<<n-1<<" disc to aux."<<endl;
-	TOH(n-1, src, aux, dest);
-	cout<<"Moving "<<n<<" disc from "<<src<<" to "<<dest<<endl;
-	TOH(n-1, aux, dest, src);
-    return;
+   
+    if(n==0)
+    {
+        return ;
+    }  
+    towerofhanoi(n-1,src,helper,dest);
+	cout<<"Moving ring "<<n<<" from "<<src<<" to "<<dest<<endl;
+    towerofhanoi(n-1,helper,dest,src);
 }
 
 int main()
-{	
-	freopen("output.txt", "w", stdout);	int n;
-	char s,d,a;
-	//cout<<"Enter the no. of disc : ";
-	//cin>>n;
-	TOH(3,"1","3","2");
-
-	return 0;
-
+{
+    int n;
+    cin>>n;
+    towerofhanoi(n,'A','B','C');   
+    return 0;
 }

@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
 
-bool isSafe(int board[][10],int n,int i,int j)
+int count=0;
+
+bool isSafe(int board[][12],int n,int i,int j)
 {
 	//check for queen in col
 	for(int row=0;row<n;row++)
@@ -34,18 +36,19 @@ bool isSafe(int board[][10],int n,int i,int j)
 	return true;
 }
 
-bool Nqueen(int board[][10],int n,int i)
+bool Nqueen(int board[][12],int n,int i)
 {
 	if(i==n)
 	{
-		for(int i=0;i<n;i++)
+		/*for(int i=0;i<n;i++)
 		{
 			for(int j=0;j<n;j++)
 			{
 				cout<<board[i][j]<<" ";
 			}cout<<endl;
-		}cout<<endl;
-		return true;
+		}cout<<endl;*/
+		count++;
+		return false;
 	}
 
 	for(int j=0;j<n;j++)
@@ -71,9 +74,9 @@ int main()
 {	
 	int n;
 	cin>>n;
-	int board[10][10]={0};
+	int board[12][12]={0};
 
-	if(!Nqueen(board,n,0))
-		cout<<"No such position."<<endl;
+	Nqueen(board,n,0);
+	cout<<count<<endl;
 	return 0;
 }

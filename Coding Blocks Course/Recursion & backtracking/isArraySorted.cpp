@@ -17,20 +17,20 @@ bool isArraySorted(int a[], int n)
 
 int main()
 {
-    int n, z;
-    cout<<"Enter the size of element: ";
+    int n;
+    //cout<<"Enter the size of element: ";
     cin>>n;
     int a[n];
-    cout<<"Enter the elements"<<endl;
+    //cout<<"Enter the elements"<<endl;
     
     for(int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
     if(isArraySorted(a, n))
-        cout<<"Sorted."<<endl;
+        cout<<"true"<<endl;
     else
-        cout<<"Not Sorted."<<endl;
+        cout<<"false"<<endl;
 
     return 0;
 

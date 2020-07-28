@@ -3,7 +3,7 @@ using namespace std;
 
 //in subsequence we have two choice of every element take it or leave it.
 
-void printSubSeq(char input[],char output[],int i,int j)
+void printSubSeq(string input,char output[],int i,int j)
 {
 	if(input[i]=='\0')
 	{
@@ -12,21 +12,28 @@ void printSubSeq(char input[],char output[],int i,int j)
 		return;
 	}
 
+	//excluding current element
+	printSubSeq(input,output,i+1,j);
+
 	//including current element
 	output[j]=input[i];
 	printSubSeq(input,output,i+1,j+1);
 
-	//excluding current element
-	printSubSeq(input,output,i+1,j);
+	
 
 
 }
 
 int main()
 {
-	char input[10]="abc";
+	//char input[10]="abc";
 	char output[10];
 
-	printSubSeq(input,output,0,0);
+	string s;
+	cin>>s;
+	int n = (int)s.length();
+
+	printSubSeq(s,output,0,0);
+	cout<<(1<<n);
 	return 0;
 }

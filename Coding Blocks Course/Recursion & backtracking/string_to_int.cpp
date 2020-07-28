@@ -16,11 +16,12 @@ int toInt(char *s,int n)
 
 int main()
 {
-	char s[] = "1234";
+	char s[11];
+	cin>>s;
 	int len = strlen(s);
 
 	int x = toInt(s,len);
 	cout<<x<<endl;
-	cout<<x+1<<endl;
+	//cout<<x+1<<endl;
 	return 0;
 }

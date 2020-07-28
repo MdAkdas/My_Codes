@@ -41,10 +41,16 @@ void replacePi(char a[],int i)
 
 int main()
 {
-	char a[10000];
-	cin>>a;
-	cout<<a<<endl;
-	replacePi(a,0);
-	cout<<a<<endl;
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		char a[10000];
+		cin>>a;
+		//cout<<a<<endl;
+		replacePi(a,0);
+		cout<<a<<endl;
+	}
+	
 	return 0;
 }
